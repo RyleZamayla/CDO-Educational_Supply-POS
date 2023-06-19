@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::prefix('admin')->middleware('auth', 'checkAdmin')->group(function() {
     Route::get('/users', [AdminController::class, 'adminGetAllUsers'])->name('user.user');
     Route::patch('/users/{user}/toggle', [AdminController::class, 'toggleUser'])->name('user.toggle');
-    Route::get('/products', [AdminController::class, 'adminGetAllProducts'])->name('admin.products');
+    Route::get('/outproduces', [AdminController::class, 'adminGetAllProducts'])->name('admin.products');
     Route::get('/products/comments', [AdminController::class, 'adminGetAllComments'])->name('admin.products.comments');
     Route::delete('/products/{id}', [AdminController::class, 'adminDeleteProduct'])->name('admin.products.delete');
     Route::delete('/products/comments/{id}', [AdminController::class, 'adminDeleteComment'])->name('admin.products.comments.delete');

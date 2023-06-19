@@ -13,21 +13,11 @@
 
     public function createProduct(array $data)
     {
-        $number = mt_rand(1000000000, 9999999999);
-
-
-        if($this->productCodeExists($number)){
-            $number = mt_rand(1000000000, 9999999999);
-        }
-
-        $request['barcode'] = $number;
-
         Product::create([
             'picture' => $data['picture'],
             'title' => $data['title'],
             'price' => $data['price'],
             'description' => $data['description'],
-            'barcode' => $data['barcode'],
         ]);
     }
 

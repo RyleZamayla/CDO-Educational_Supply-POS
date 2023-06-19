@@ -16,11 +16,11 @@ return new class extends Migration
             $table->binary('picture'); // Update column definition to use binary method for BLOB
             $table->string('title');
             $table->double('price');
-            $table->integer('quantity');
+            // $table->integer('quantity');
             $table->boolean('status')->default(true);
             $table->longText('description');
             $table->timestamps();
-            $table->string('barcode');
+            // $table->string('barcode');
             $table->softDeletes();
         });
     }

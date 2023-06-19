@@ -31,7 +31,6 @@ class ProductController extends Controller
             'title' => 'required',
             'price' => 'required',
             'description' => 'required',
-            'barcode' => 'required'
         ]);
 
         $data = $request->all();
@@ -44,7 +43,7 @@ class ProductController extends Controller
 
         $this->product->createProduct($data);
 
-        return redirect('/products');
+        return redirect('admin/outproduces');
     }
 
     public function show($id) {
