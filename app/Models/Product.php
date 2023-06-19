@@ -12,7 +12,7 @@ class Product extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'picture', 'title', 'price', 'description'
+        'picture', 'title', 'price', 'description', 'barcode'
     ];
 
     protected $dates = [

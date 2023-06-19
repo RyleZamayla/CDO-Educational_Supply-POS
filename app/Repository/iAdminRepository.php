@@ -1,6 +1,7 @@
 <?php
 
   namespace App\Repository;
+  use App\Models\User;
 
   interface iAdminRepository {
 
@@ -14,7 +15,8 @@
 
     public function adminDeleteComment($id);
 
-  }
+    public function adminToggleUser(User $user);
 
+  }
 
 ?>

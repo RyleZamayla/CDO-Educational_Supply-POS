@@ -222,7 +222,7 @@
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}"
-                onclick="event.preventDefault(); 
+                onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();"
               >
                 <i class="bi bi-box-arrow-right"></i>
@@ -269,26 +269,29 @@
         </ul>
       </li><!-- End Components Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-person-bounding-box"></i><span>Users</span>
-          <i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="/admin/users">
-              <i class="bi bi-circle"></i><span>User List</span>
+      @if(auth()->user()->role === 1)
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-person-bounding-box"></i><span>Users</span>
+                <i class="bi bi-chevron-down ms-auto"></i>
             </a>
-          </li>
-          <li>
-            <a href="/admin/users">
-              <i class="bi bi-circle"></i><span>Add User</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Tables Nav -->
+            <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="/admin/users">
+                        <i class="bi bi-circle"></i><span>User List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/users">
+                        <i class="bi bi-circle"></i><span>Add User</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    @endif
 
-    
+
+
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-bar-chart"></i><span>Sales</span><i class="bi bi-chevron-down ms-auto"></i>

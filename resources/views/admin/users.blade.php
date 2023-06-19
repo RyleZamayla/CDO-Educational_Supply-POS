@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="text-center">Admin All Table Products</h1>
+<h1 class="text-center">Admin All Users</h1>
 <br>
 
 
@@ -18,6 +18,7 @@
                         <th scope="col">Password</th>
                         <th scope="col">Role</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -26,17 +27,30 @@
                                 <th scope="row">{{ $user->id }}</th>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->password }}</td>
-                                <td>{{ $user->role }}</td>
-                                <td>{{ $user->status }}</td>
+                                <td>{{ str_repeat('•', strlen($user->password)) }}</td>
+
+                                <td>
+                                    <div class="status-indicator">
+                                        <div class="circle {{ $user->role ? '1' : '0' }}"style="width: 100px;"></div>
+                                        <span class="status-text">{{ $user->role ? 'admin' : 'employee' }}</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="status-indicator">
+                                        <center><div class="circle" style="border-radius: 50%; height: 20px; width: 20px; background-color: {{ $user->status ? 'green' : 'red' }}"></div></center>
+                                    </div>
+
+                                </td>
                                 <td>
                                     <form method="POST" action="{{ route('user.toggle', $user->id) }}">
                                         @csrf
                                         @method('PATCH')
-                                        <button type="submit" class="btn btn-sm {{ $user->enabled ? 'btn-success' : 'btn-danger' }}">
+                                        <button type="submit" class="btn btn-sm {{ $user->status ? 'btn-danger' : 'btn-success' }}" style="width: 75px; border-radius: 50px;">
                                             {{ $user->status ? 'Disable' : 'Enable' }}
                                         </button>
                                     </form>
+
+
                                 </td>
                                 {{-- <td><a href="{{ route('products.edit', $product->id)}}" class="btn btn-primary">Edit</a></td>
                                 <td><a href="{{ route('products.show', $product->id)}}" class="btn btn-success">View</a></td>

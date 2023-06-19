@@ -30,7 +30,8 @@ class ProductController extends Controller
             'picture' => 'required',
             'title' => 'required',
             'price' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'barcode' => 'required'
         ]);
 
         $data = $request->all();

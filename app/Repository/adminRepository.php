@@ -9,6 +9,7 @@
 
   class adminRepository implements iAdminRepository {
 
+
     public function adminGetAllProducts()
     {
         return Product::all();
@@ -38,12 +39,6 @@
     public function adminDeleteComment($id)
     {
       return Comment::find($id)->delete();
-      if ($comment) {
-            $comment->delete();
-            return "Comment soft deleted successfully.";
-        } else {
-            return "Comment not found.";
-        }
     }
 
     public function adminToggleUser(User $user)
